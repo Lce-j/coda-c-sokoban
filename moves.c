@@ -1,7 +1,7 @@
 #include "sokoban.h"
 
 void move_up(game *sokoban){
-    if(sokoban->player.pos_y >0){
+    if(sokoban->player.pos_y > 0){
         position tmp;
         tmp.pos_y = sokoban->player.pos_y - 1;
         tmp.pos_x = sokoban->player.pos_x;
@@ -26,7 +26,7 @@ void move_down(game *sokoban){
         move_box(sokoban, "down");
 
     } else{
-        Printf("Vous ne pouvez pas aller plus bas");
+        printf("Vous ne pouvez pas aller plus bas");
     }
 }
 
@@ -61,7 +61,7 @@ void move_right(game *sokoban){
 }
 
 void move_box(game *sokoban, char *move){
-    if(compare_positions(sokoban->player, sokoban->box) = 1){
+    if(compare_positions(sokoban->player, sokoban->box) == 1){
         
         if(strcmp(move, "up") == 0){
             if(sokoban->box.pos_y > 0){
@@ -84,4 +84,31 @@ void move_box(game *sokoban, char *move){
             }
         }
     }
+}
+
+void ask_for_move(game *sokoban){
+    char * next_mv;
+    printf("Would you like to go: up, domwn, left, right ?\n");
+    scanf("%s", next_mv);
+    handle_move(sokoban, next_mv);
+}
+
+void handle_move(game * sokoban, char * move)
+{
+   if ( strcmp(move, "up") == 0)
+   {
+        move_up(sokoban);
+   }
+   else if (strcmp(move, "down") == 0)
+   {
+        move_down(sokoban);
+   }
+   else if (strcmp(move, "right") == 0)
+   {
+        move_right(sokoban);
+   }
+   else if ( strcmp(move, "left") == 0 )
+   {
+        move_left(sokoban);
+   }
 }
