@@ -24,7 +24,7 @@ int can_box_move_to_objectif(game *sokoban){
 }
 
 int check_win(game *sokoban){
-    if(compare_positions(sokoban->objectif, sokoban->box) == 1){
+    if(compare_position(sokoban->objectif, sokoban->box) == 1){
         return(1);
     }
     return(0);

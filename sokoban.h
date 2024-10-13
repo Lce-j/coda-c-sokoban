@@ -6,14 +6,14 @@
 #include <string.h>
 #include <unistd.h>
 
-struct s_pos {
+struct s_pos{
     int pos_y;
     int pos_x
 };
 
 typedef struct s_pos position;
 
-struct s_game {
+struct s_game{
     char **map;
     position box;
     position player;
@@ -32,7 +32,7 @@ void update_map_player(game *sokoban);
 
 //position.c
 void init_positions(game *sokoban);
-int compare_pod(position1 pos1, position2 pos2);
+int compare_position(position pos1, position pos2);
 
 //moves.c
 void ask_for_move(game *sokoban);
