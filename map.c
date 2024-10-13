@@ -5,8 +5,8 @@ void print_map(char **map){
     int i = 0;
     
     printf("##########\n");
-    while(map[i] != NULL){
-        printf("#%s#", map[i]);
+    while(map[i] != 10){
+        printf("#        #\n", map[i]);
         i = i + 1;
     }
     printf("##########\n");
@@ -35,14 +35,17 @@ void update_map_objectif(game *sokoban){
 
 void init_map(game *sokoban){
     char *help;
-    sokoban->map = malloc(11 * sizeof(help));
+    sokoban->map = malloc(12 * sizeof(help));
     sokoban->map[10] = NULL;
 
     int i = 0;
     while(i < 11){
-        sokoban->map[i] = malloc(12 *sizeof(help));
+        sokoban->map[i] = malloc(10 *sizeof(help));
         sokoban->map[i] == " ";
         i = i + 1;
+        if(i == 11){
+            break;
+        }
     }
 }
 
